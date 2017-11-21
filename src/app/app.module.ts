@@ -16,6 +16,7 @@ import {ToastModule, ToastOptions} from "ng2-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToastrService} from "./services/toastr.service";
 import {CustomToastr} from "./support/CustomToastr";
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import {CustomToastr} from "./support/CustomToastr";
         HomeComponent,
         WelcomeComponent,
         NavigationComponent,
-        UserComponent
+        UserComponent,
+        UserDetailsComponent
     ],
     imports: [
         BrowserModule,

@@ -1,4 +1,43 @@
-<p class="jumbotron justify-content-center">
-  name: {{user['name']}}
-  email: {{user['email']}}
-</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="profile-block row">
+                <div class="col user-image">
+                    <img class="rounded" src="http://via.placeholder.com/152x152" alt="{{user['name']}}">
+                </div>
+                <div class="col user-info">
+                    <div class="profile-header">
+                        <span class="profile-title">{{user['name']}}</span>
+                        <button class="btn btn-sm profile-btn edit-profile">Edit Profile</button>
+                        <button class="btn btn-sm profile-btn make-post">Make Post</button>
+                        <button class="btn btn-sm profile-settings-btn"><i class="glyphicon glyphicon-cog"></i></button>
+                    </div>
+                    <div class="profile-middle">
+                        <div class="row">
+                            <div class="col">
+                                <span class="posts-indicator">0</span> posts
+                            </div>
+                            <div class="col">
+                                <span class="followers-indicator">0</span>
+                                <button class="btn btn-sm btn-light">followers</button>
+                            </div>
+                            <div class="col">
+                                <span class="following-indicator">0</span>
+                                <button class="btn btn-sm btn-light">following</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-description">
+                        <strong>{{user['nickname']}}</strong>
+                        {{user['description']}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <app-user-details></app-user-details>
+        </div>
+    </div>
+</div>

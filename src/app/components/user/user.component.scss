@@ -1,0 +1,52 @@
+.profile-block {
+  padding: 25px 0;
+  .user-image {
+    margin: 0 auto;
+    flex-direction: column; /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center;
+    text-align: center;
+    img {
+      width: 152px;
+      height: 152px;
+      &.rounded {
+        border-radius: 50% !important;
+      }
+    }
+  }
+  .user-info {
+    flex-grow: 2;
+    .posts-indicator, .followers-indicator, .following-indicator {
+      font-weight: 700;
+    }
+    .profile-title {
+      font-size: 32px;
+      line-height: 40px;
+      font-weight: 200;
+    }
+    .profile-header {
+      padding-bottom: 20px;
+      .profile-settings-btn {
+        background: transparent;
+        cursor: pointer;
+      }
+    }
+    .profile-btn {
+      background: 0 0;
+      cursor: pointer;
+      border-color: #dbdbdb;
+      color: #262626;
+      font-weight: 600;
+      -webkit-appearance: none;
+      border-radius: 3px;
+      border-style: solid;
+      border-width: 1px;
+      font-size: 14px;
+      outline: none;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-left: 15px;
+    }
+  }
+}
