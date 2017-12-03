@@ -47,7 +47,7 @@ export class PostService {
      * get all users data
      * @returns {Observable<R>}
      */
-    getAllUserPosts(): Observable<Post[]> {
+    allUserPosts(): Observable<Post[]> {
         // add authorization header with jwt token
         let headers = new Headers({'Authorization': 'Bearer ' + this.token});
         let options = new RequestOptions({headers: headers});

@@ -42,6 +42,11 @@ class Post extends Model
      */
     protected $fillable = ['user_id'];
 
+
+    protected $with = [
+        'photos',
+        'videos'
+    ];
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

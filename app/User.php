@@ -64,4 +64,9 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = \Hash::make($value);
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

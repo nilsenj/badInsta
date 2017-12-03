@@ -43,11 +43,11 @@ Route::group(['middleware' => ['api'], 'as' => 'api.'], function () {
         Route::get('/user', [
             'uses' => 'UserController@index',
         ]);
-        Route::resource('posts', 'PostsController');
         Route::group(['prefix' => 'posts', 'as' => 'posts'], function () {
             Route::get('/allUserPosts', [
                 'uses' => 'PostsController@allUserPosts',
             ]);
         });
+        Route::resource('posts', 'PostsController');
     });
 });

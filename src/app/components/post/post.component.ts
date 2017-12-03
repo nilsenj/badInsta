@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {Post} from "../../models/Post";
 import {PostService} from "../../services/post.service";
+import {arrays} from "../../helpers/arrays";
 
 @Component({
     selector: 'app-post',
@@ -12,14 +13,13 @@ export class PostComponent implements OnInit {
     public posts: Post[];
     public postService;
 
-    constructor(postService: PostService) {
+    constructor(@Inject(PostService) postService: PostService) {
         this.postService = postService;
     }
 
     ngOnInit() {
-      this.posts = [];
-        this.postService.getAllUserPosts.subscribe(data => {
-            console.log(data);
+        this.posts = [];
+        this.postService.allUserPosts().subscribe(data => {
             this.posts = data;
         });
     }

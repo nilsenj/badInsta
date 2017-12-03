@@ -1,4 +1,6 @@
 <p>
     post works!
-    <app-photo [model]="post.photos"></app-photo>
 </p>
+<div *ngFor="let post of posts">
+    <app-photo [model]="post.photos"></app-photo>
+</div>

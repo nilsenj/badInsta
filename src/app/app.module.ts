@@ -10,6 +10,7 @@ import {HttpModule} from "@angular/http";
 import {FormsModule} from "@angular/forms";
 import {AuthGuard} from "./guards/auth.guard";
 import {AuthenticationService} from "./services/authentication.service";
+import {PostService} from "./services/post.service";
 import {NavigationComponent} from './components/navigation/navigation.component';
 import {UserComponent} from './components/user/user.component';
 import {ToastModule, ToastOptions} from "ng2-toastr";
@@ -20,7 +21,7 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
 import { PostComponent } from './components/post/post.component';
 import { PhotoComponent } from './components/photo/photo.component';
 import { VideoComponent } from './components/video/video.component';
-import {PostService} from "./services/post.service";
+import { SavesComponent } from './components/saves/saves.component';
 
 @NgModule({
     declarations: [
@@ -34,7 +35,8 @@ import {PostService} from "./services/post.service";
         UserDetailsComponent,
         PostComponent,
         PhotoComponent,
-        VideoComponent
+        VideoComponent,
+        SavesComponent
     ],
     imports: [
         BrowserModule,

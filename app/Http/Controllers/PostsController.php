@@ -23,13 +23,11 @@ class PostsController extends Controller
     }
 
     /**
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-        $posts = PostResource::collection($this->post->with(
-            ['videos', 'photo']
-        )->paginate());
+        $posts = PostResource::collection($this->post->paginate())->response();
 
         return $posts;
     }
@@ -40,7 +38,7 @@ class PostsController extends Controller
      */
     public function allUserPosts(Request $request)
     {
-        return response()->json($request->user()->toArray());
+        return response()->json($request->user()->posts->all());
     }
 
     /**
