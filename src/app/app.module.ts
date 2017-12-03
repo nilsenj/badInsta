@@ -17,6 +17,10 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToastrService} from "./services/toastr.service";
 import {CustomToastr} from "./support/CustomToastr";
 import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { PostComponent } from './components/post/post.component';
+import { PhotoComponent } from './components/photo/photo.component';
+import { VideoComponent } from './components/video/video.component';
+import {PostService} from "./services/post.service";
 
 @NgModule({
     declarations: [
@@ -27,7 +31,10 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
         WelcomeComponent,
         NavigationComponent,
         UserComponent,
-        UserDetailsComponent
+        UserDetailsComponent,
+        PostComponent,
+        PhotoComponent,
+        VideoComponent
     ],
     imports: [
         BrowserModule,
@@ -42,6 +49,7 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
         AuthGuard,
         ToastrService,
         {provide: ToastOptions, useClass: CustomToastr},
+        PostService
     ],
     bootstrap: [AppComponent]
 })

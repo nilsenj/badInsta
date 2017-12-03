@@ -1,14 +1,16 @@
 <ul class="nav justify-content-center user-details-block">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Active</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#">Disabled</a>
-  </li>
+    <li class="nav-item">
+        <button [className]="showPost ? 'btn btn-link nav-link active' : 'btn btn-link nav-link'" (click)="postsTab()">POSTS</button>
+    </li>
+    <li class="nav-item">
+        <button [className]="showSaved ? 'btn btn-link nav-link active' : 'btn btn-link nav-link'" class="btn btn-link nav-link" (click)="savedTab()">SAVED</button>
+    </li>
 </ul>
+
+<div *ngIf="showPost">
+    hello posts
+    <app-post></app-post>
+</div>
+<div *ngIf="showSaved">
+    hello saved
+</div>
