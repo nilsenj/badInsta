@@ -15,14 +15,14 @@ Route::get('/', function () {
     return view('root');
 });
 
-Route::get('/assets/{file}', function (Request $request, $file) {
+Route::get('/assets/{file}', function (\Illuminate\Http\Request $request, $file) {
     return Storage::disk('assets')->get($file);
 });
 
-Route::get('/assets/fonts/{file}', function (Request $request, $file) {
+Route::get('/assets/fonts/{file}', function (\Illuminate\Http\Request $request, $file) {
     return Storage::disk('assets')->get('fonts/' . $file);
 });
 
-Route::get('/assets/images/{file}', function (Request $request, $file) {
+Route::get('/assets/images/{file}', function (\Illuminate\Http\Request $request, $file) {
     return Storage::disk('assets')->get('images/' . $file);
 });

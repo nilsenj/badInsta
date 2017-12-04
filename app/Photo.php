@@ -32,4 +32,13 @@ class Photo extends Model
     protected $fillable = [
         "url"
     ];
+
+    protected $appends = [
+        'full_url'
+    ];
+
+    public function getFullUrlAttribute()
+    {
+        return asset('assets/images/' . $this->url);
+    }
 }

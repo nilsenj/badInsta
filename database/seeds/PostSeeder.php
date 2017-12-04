@@ -31,8 +31,10 @@ class PostSeeder extends Seeder
             ->each(function (\App\Post $post) use ($faker) {
                 $post->user_id = $faker->numberBetween(1, \App\User::all()->count());
                 $post->save();
-                $post->photos()->create(['url' => $this->images
-                [$faker->numberBetween(0, count($this->images) - 1)]]);
+                for($i=0; $i<=3; $i++) {
+                    $post->photos()->create(['url' => $this->images
+                    [$faker->numberBetween(0, count($this->images) - 1)]]);
+                }
                 $post->videos()->create([]);
             });
     }

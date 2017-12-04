@@ -1,6 +1,15 @@
-<p>
-    photo works!
-</p>
-<div *ngFor="let photo of model" class="col-3">
-    {{photo.url}}
+<div class="row">
+    <div *ngFor="let photo of model" class="col-4 photo-block thumbnail">
+        <div class="overlay">
+            <div class="likes-block">
+                <i class="glyphicon glyphicon-heart"></i>
+                <small>0</small>
+            </div>
+            <div class="comments-block">
+                <i class="glyphicon glyphicon-comment"></i>
+                <small>0</small>
+            </div>
+        </div>
+        <img class="img-fluid" src="{{photo.full_url}}" alt="">
+    </div>
 </div>
