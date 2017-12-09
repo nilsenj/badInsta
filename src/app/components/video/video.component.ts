@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Video} from "../../models/Video";
+import {Post} from "../../models/Post";
 
 @Component({
   selector: 'app-video',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoComponent implements OnInit {
 
-  constructor() { }
+    @Input('model') model: Post[];
+    @Input('indexIndicator') indexIndicator: number;
+    constructor() { }
 
-  ngOnInit() {
-  }
-
+    ngOnInit() {
+    }
 }

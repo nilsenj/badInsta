@@ -40,7 +40,10 @@ class Post extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id'];
+    protected $fillable = [
+        'user_id',
+        'description'
+    ];
 
 
     protected $with = [

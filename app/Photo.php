@@ -33,12 +33,18 @@ class Photo extends Model
         "url"
     ];
 
+    /**
+     * @var array
+     */
     protected $appends = [
         'full_url'
     ];
 
+    /**
+     * @return string
+     */
     public function getFullUrlAttribute()
     {
-        return asset('assets/images/' . $this->url);
+        return asset('uploads/images/' . $this->url);
     }
 }

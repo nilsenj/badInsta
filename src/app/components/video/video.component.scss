@@ -1,0 +1,39 @@
+.media-block {
+  height: 300px;
+  .overlay {
+    background: transparentize(#003569, .5);
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  img {
+    margin: auto;
+    vertical-align: middle;
+  }
+  &:hover .overlay{
+    display: block;
+    .comments-block {
+      color: white;
+      position: absolute;
+      top: 40%;
+      left: 60%;
+      font-size: xx-large;
+    }
+    .likes-block {
+      color: white;
+      font-size: xx-large;
+      position: absolute;
+      top: 40%;
+      left: 35%;
+    }
+    .likes-block:hover, .comments-block:hover {
+      cursor: pointer;
+    }
+    small {
+      font-size: 1.4rem;
+    }
+  }
+}

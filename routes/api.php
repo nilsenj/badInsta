@@ -47,6 +47,9 @@ Route::group(['middleware' => ['api'], 'as' => 'api.'], function () {
             Route::get('/allUserPosts', [
                 'uses' => 'PostsController@allUserPosts',
             ]);
+            Route::get('/allUsersFeed', [
+                'uses' => 'PostsController@allUsersFeed',
+            ]);
         });
         Route::resource('posts', 'PostsController');
     });

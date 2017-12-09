@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Photo} from "../../models/Photo";
+import {Post} from "../../models/Post";
 
 @Component({
   selector: 'app-photo',
@@ -7,7 +8,8 @@ import {Photo} from "../../models/Photo";
   styleUrls: ['./photo.component.scss']
 })
 export class PhotoComponent implements OnInit {
-  @Input('model') model: Photo[];
+  @Input('model') model: Post[];
+  @Input('indexIndicator') indexIndicator: number;
   constructor() { }
 
   ngOnInit() {

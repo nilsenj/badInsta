@@ -22,6 +22,11 @@ import { PostComponent } from './components/post/post.component';
 import { PhotoComponent } from './components/photo/photo.component';
 import { VideoComponent } from './components/video/video.component';
 import { SavesComponent } from './components/saves/saves.component';
+import { HomePostComponent } from './components/home-post/home-post.component';
+import { PhotoPostComponent } from './components/photo-post/photo-post.component';
+import { VideoPostComponent } from './components/video-post/video-post.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ClickPreventDirective } from './directives/click-prevent.directive';
 
 @NgModule({
     declarations: [
@@ -36,7 +41,11 @@ import { SavesComponent } from './components/saves/saves.component';
         PostComponent,
         PhotoComponent,
         VideoComponent,
-        SavesComponent
+        SavesComponent,
+        HomePostComponent,
+        PhotoPostComponent,
+        VideoPostComponent,
+        ClickPreventDirective
     ],
     imports: [
         BrowserModule,
@@ -44,7 +53,8 @@ import { SavesComponent } from './components/saves/saves.component';
         HttpModule,
         AppRouterModule,
         BrowserAnimationsModule,
-        ToastModule.forRoot()
+        ToastModule.forRoot(),
+        NgbModule.forRoot()
     ],
     providers: [
         AuthenticationService,

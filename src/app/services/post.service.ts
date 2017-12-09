@@ -43,6 +43,16 @@ export class PostService {
             .map((response: Response) => response.json());
     }
 
+    allUsersFeed(): Observable<Post[]> {
+        // add authorization header with jwt token
+        let headers = new Headers({'Authorization': 'Bearer ' + this.token});
+        let options = new RequestOptions({headers: headers});
+
+        // get posts from api
+        return this.http.get(app.api_url + '/api/posts/allUsersFeed', options)
+            .map((response: Response) => response.json());
+    }
+
     /**
      * get all users data
      * @returns {Observable<R>}

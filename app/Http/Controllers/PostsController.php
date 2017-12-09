@@ -33,6 +33,16 @@ class PostsController extends Controller
     }
 
     /**
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function allUsersFeed()
+    {
+        $posts = PostResource::collection($this->post->paginate())->response();
+
+        return $posts;
+    }
+
+    /**
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
