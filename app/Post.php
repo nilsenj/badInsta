@@ -47,6 +47,7 @@ class Post extends Model
         'photos',
         'videos'
     ];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
