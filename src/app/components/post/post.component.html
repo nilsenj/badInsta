@@ -1,3 +1,42 @@
-<div *ngFor="let post of posts">
-    <app-photo [model]="post.photos"></app-photo>
+<div *ngFor="let row of __chunk(posts, 3), let i = index">
+    <div class="row">
+        <div *ngFor="let post of row, let indicatorIndex = index" id="carouselExampleIndicators"
+             class="carousel slide col-4" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li *ngFor="let post of row, let indicatorIndex = index"
+                    [attr.data-target]="'#carouselExampleIndicators'+i" [attr.data-slide-to]="indicatorIndex"
+                    [class]="indicatorIndex == 0 ? 'active' : ''"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div *ngFor="let item of post.items, let itemIndex = index"
+                     [class]="itemIndex == 0 ? 'media-block active': 'media-block'">
+                    <div class="overlay">
+                        <div class="likes-block">
+                            <i class="glyphicon glyphicon-heart"></i>
+                            <small>0</small>
+                        </div>
+                        <div class="comments-block">
+                            <i class="glyphicon glyphicon-comment"></i>
+                            <small>0</small>
+                        </div>
+                    </div>
+                    <img *ngIf="item.type == 'photo'" class="d-block img-fluid" alt="{{item.description}}"
+                         src="{{item.full_url}}">
+                    <video *ngIf="item.type == 'video'" controls="controls" class="embed-responsive-item">
+                        <source src="{{item.full_url}}" type="video/mp4">
+                        <source src="{{item.full_url}}" type='video/ogg'>
+                        <source src="{{item.full_url}}" type='video/webm'>
+                    </video>
+                </div>
+            </div>
+            <a class="carousel-control-prev" [href]="'#carouselExampleIndicators'+i" appClickPrevent role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" [href]="'#carouselExampleIndicators'+i" appClickPrevent role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
 </div>

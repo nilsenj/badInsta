@@ -1,3 +1,20 @@
-<p>
-  video works!
-</p>
+<div *ngFor="let video of model.videos">
+    <div class="overlay">
+        <div class="likes-block">
+            <i class="glyphicon glyphicon-heart"></i>
+            <small>0</small>
+        </div>
+        <div class="comments-block">
+            <i class="glyphicon glyphicon-comment"></i>
+            <small>0</small>
+        </div>
+    </div>
+
+    <div class="">
+        <video controls="controls" class="embed-responsive-item">
+            <source src="{{video.full_url}}" type="video/mp4">
+            <source src="{{video.full_url}}" type='video/ogg'>
+            <source src="{{video.full_url}}" type='video/webm'>
+        </video>
+    </div>
+</div>

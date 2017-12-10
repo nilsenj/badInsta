@@ -20,6 +20,16 @@ class PostSeeder extends Seeder
     ];
 
     /**
+     * @var array
+     */
+    protected $videos = [
+        'me.mp4',
+        'html5.mp4',
+        'video-dummy.mp4',
+        'video_test.ogv'
+    ];
+
+    /**
      * Run the database seeds.
      *
      * @return void
@@ -27,15 +37,51 @@ class PostSeeder extends Seeder
     public function run()
     {
         $faker = Faker\Factory::create();
-        factory(\App\Post::class, 20)->create()
-            ->each(function (\App\Post $post) use ($faker) {
-                $post->user_id = $faker->numberBetween(1, \App\User::all()->count());
+        factory(\App\Post::class, 200)->create()
+            ->each(function (\App\Post $post, $index) use ($faker) {
+                $userId = $faker->numberBetween(1, \App\User::all()->count());
+                $post->user_id = $userId;
                 $post->save();
-                for($i=0; $i<=3; $i++) {
-                    $post->photos()->create(['url' => $this->images
-                    [$faker->numberBetween(0, count($this->images) - 1)]]);
+                if ($post->id % 2 == 0) {
+                    for ($i = 0; $i < 3; $i++) {
+                        if (count($post->photos)) {
+                            $photoUrl = $this->images
+                            [$faker->numberBetween($i, count($this->images) - 1)];
+                            if (!$post->photos()->where('url', $photoUrl)->count()) {
+                                $post->photos()->create(['url' => $photoUrl]);
+                            }
+                        }
+                        else {
+                            $photoUrl = $this->images
+                            [$faker->numberBetween($i, count($this->images) - 1)];
+                            if (!$post->photos()->where('url', $photoUrl)
+                                ->count()) {
+                                $post->photos()->create(['url' => $photoUrl]);
+                            }
+                        }
+                    }
+                } else {
+                    for ($i = 0; $i < 3; $i++) {
+                        if (count($post->videos)) {
+                            $videoUrl = $this->videos
+                            [$faker->numberBetween($i, count($this->videos) - 1)];
+
+                            if (!$post->videos()->where('url', $videoUrl)->count()) {
+                                $post->videos()->create([
+                                    'url' => $videoUrl
+                                ]);
+                            }
+                        } else {
+                            $videoUrl = $this->videos
+                            [$faker->numberBetween($i, count($this->videos) - 1)];
+                            if (!$post->videos()->where('url', $videoUrl)->count()) {
+                                $post->videos()->create([
+                                    'url' => $videoUrl
+                                ]);
+                            }
+                        }
+                    }
                 }
-                $post->videos()->create([]);
             });
     }
 }

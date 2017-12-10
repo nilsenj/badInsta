@@ -32,4 +32,19 @@ class Video extends Model
     protected $fillable = [
         "url"
     ];
+
+    /**
+     * @var array
+     */
+    protected $appends = [
+        'full_url'
+    ];
+
+    /**
+     * @return string
+     */
+    public function getFullUrlAttribute()
+    {
+        return asset('uploads/videos/' . $this->url);
+    }
 }
